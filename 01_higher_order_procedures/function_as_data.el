@@ -6,3 +6,5 @@
   )
 
 (defun square (x) (* x x))
+
+(provide 'function_as_data)
