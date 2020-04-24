@@ -19,3 +19,18 @@
                             '("gotta" "get" "you" "in" "my" "life"))
                  '("get" "life")))
   )
+
+(ert-deftest make-adder-fn-test ()
+  (should (equal (plus3 8) 11))
+  (should (equal (plus5 8) 13))
+  (should (equal (plus5 (plus3 8)) 16))
+  (should (equal (funcall (make-adder-fn 9) 8) 17))
+  )
+
+(ert-deftest compose-fns-test ()
+  (should (equal (second-in-list
+                  '("gotta" "get" "you" "in" "my" "life"))
+                 "get"))
+  ;; (square (square 3)) = 81
+  (should (equal (funcall (fn-apply-twice 'square) 3) 81))
+  )
