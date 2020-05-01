@@ -2,6 +2,7 @@
 
 (require 'implement_data_pair_using_procedure_only)
 (require 'tree_hierachical_data)
+(require 'map_deep_list)
 
 (ert-deftest my-pair-test ()
   (should (equal (my-car (my-cons 3 4)) 3))
@@ -22,4 +23,10 @@
     ;; apply square function to every item of my-tree
     (should (equal (tree-map 'square my-tree) '(1 (4 (9) (16)) (25 (36) (49) (64)))))
     )
+  )
+
+(ert-deftest my-deep-list-map-test ()
+  (defun square (x) (* x x))
+  (should (equal (deep-list-map 'square '((2 3) (3 4 5) (6 (7 (8)))))
+                 '((4 9) (9 16 25) (36 (49 (64))))))
   )
