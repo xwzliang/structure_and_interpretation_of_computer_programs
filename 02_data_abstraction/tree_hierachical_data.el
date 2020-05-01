@@ -19,8 +19,29 @@
   (make-tree (funcall fn-to-map (get-datum tree))
              (mapcar (lambda (child) (tree-map fn-to-map child))
                      (get-children tree))
-   )
+             )
   )
 
+(defun depth-first-search (tree)
+  (prin1 (get-datum tree))
+  (princ " ")
+  (mapcar 'depth-first-search (get-children tree))
+  )
+
+(defun breadth-first-search (tree)
+  (bfs-iter (list tree))
+  )
+
+(defun bfs-iter (queue)
+  ;; queue is just a list
+  (if (not (null queue))
+      (let ((queue-head (car queue)))
+        (prin1 (get-datum queue-head))
+        (princ " ")
+        ;; enqueue queue-head's children
+        (bfs-iter (append (cdr queue) (get-children queue-head)))
+        )
+    )
+  )
 
 (provide 'tree_hierachical_data)

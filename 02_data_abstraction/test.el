@@ -22,6 +22,12 @@
     (defun square (x) (* x x))
     ;; apply square function to every item of my-tree
     (should (equal (tree-map 'square my-tree) '(1 (4 (9) (16)) (25 (36) (49) (64)))))
+    ;; depth-first-search
+    (should (equal (with-output-to-string (depth-first-search my-tree))
+                   "1 2 3 4 5 6 7 8 "))
+    ;; breadth-first-search
+    (should (equal (with-output-to-string (breadth-first-search my-tree))
+                   "1 2 5 3 4 6 7 8 "))
     )
   )
 
