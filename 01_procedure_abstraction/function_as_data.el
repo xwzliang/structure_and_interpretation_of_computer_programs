@@ -2,6 +2,8 @@
 ;; Generalizing patterns is how we keep our program from getting really long
 ;; Programming is easy as long as we can see the whole program all at once
 
+;; lisp has a uniform for both procedure and data, (a b c) can be a procedure or a list
+;; this makes lisp very good at handling its own programs
 
 ;; First Class Data Type
 ;; Can be:
@@ -48,6 +50,11 @@
 
 
 ;; procedure that takes functions as arguments and return a function
+
+;; why do we need to handle fn-f, fn-g specially?
+;; because when we define a function in another function, normally the variables of inner one are protected from outer one
+;; so in order to use the variable value in outer function, we need to tell lisp to evaluate those first
+
 ;; (defun compose-fns (fn-f fn-g)
 ;;   (lexical-let ((fn-f fn-f)
 ;;                 (fn-g fn-g))
