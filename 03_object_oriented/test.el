@@ -1,4 +1,5 @@
 (require 'build_class_using_lambda)
+(require 'represent_tables_with_mutable_data)
 
 (ert-deftest one-count-test ()
   ;; These three should test only once without re-evaluate the source code
@@ -58,4 +59,13 @@
   (should (equal (funcall (buzzer 'local)) "buzz"))
   (should (equal (funcall (buzzer 'set-local-value) 13) "okay"))
   (should (equal (funcall (buzzer 'local)) "buzz"))
+  )
+
+(ert-deftest represent-tables-with-mutable-data-test ()
+  (should (equal the-table '(*table*)))
+  (should (equal (table-put-value 'first-key 'first-value) 'ok))
+  (should (equal (table-put-value 'second-key 'second-value) 'ok))
+  (should (equal (table-put-value 'third-key 'third-value) 'ok))
+  (should (equal (table-get-value 'first-key) 'first-value))
+  (should (equal (table-get-value 'third-key) 'third-value))
   )
