@@ -8,6 +8,8 @@
 ;; If lexical binding is needed for whole file without using lexical-let, put following line to the first line of a file
 ;;; -*- lexical-binding: t -*-
 
+(require 'cl)
+
 (defalias 'one-count
   (lexical-let ((count-value 0))
     (lambda ()

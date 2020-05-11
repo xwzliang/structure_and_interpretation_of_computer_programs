@@ -1,3 +1,5 @@
+(add-to-list 'load-path (file-name-directory (or load-file-name buffer-file-name)))
+
 (require 'build_class_using_lambda)
 (require 'represent_tables_with_mutable_data)
 

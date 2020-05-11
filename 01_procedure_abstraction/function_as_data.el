@@ -14,6 +14,7 @@
 ;; - anonymous
 
 (require 'cl-lib)
+(require 'cl)
 
 ;; procudure that takes a function as argument
 (defun my-sum (fn-as-data a b)

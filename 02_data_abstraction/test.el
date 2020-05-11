@@ -1,5 +1,7 @@
 (require 'ert)
 
+(add-to-list 'load-path (file-name-directory (or load-file-name buffer-file-name)))
+
 (require 'implement_data_pair_using_procedure_only)
 (require 'tree_hierachical_data)
 (require 'map_deep_list)
