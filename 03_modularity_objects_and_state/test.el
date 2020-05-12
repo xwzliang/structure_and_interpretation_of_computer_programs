@@ -2,6 +2,7 @@
 
 (require 'build_class_using_lambda)
 (require 'represent_tables_with_mutable_data)
+(require 'stream_delayed_lists)
 
 (ert-deftest one-count-test ()
   ;; These three should test only once without re-evaluate the source code
@@ -70,4 +71,13 @@
   (should (equal (table-put-value 'third-key 'third-value) 'ok))
   (should (equal (table-get-value 'first-key) 'first-value))
   (should (equal (table-get-value 'third-key) 'third-value))
+  )
+
+(ert-deftest my-stream-test ()
+  (should (equal (my-stream-show stream-ones) '(1 1 1 1 1 1 1 1 1 1 ...)))
+  (should (equal (my-stream-show stream-integers) '(1 2 3 4 5 6 7 8 9 10 ...)))
+  (should (equal (my-stream-show stream-even-integers) '(2 4 6 8 10 12 14 16 18 20 ...)))
+  (should (equal (my-stream-show stream-primes) '(2 3 5 7 11 13 17 19 23 29 ...)))
+  (setq max-specpdl-size 1400)				;; Limit on number of Lisp variable bindings and unwind-protects. Default 1300 is too small for 20 primes' calculation	
+  (should (equal (my-stream-show stream-primes 20) '(2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 ...)))
   )
