@@ -1,3 +1,7 @@
+;; abstraction is a process of enabling you to think in terms of the problem you are trying to solve, rather than thinking in terms of the limitations of computer hardware.
+;; abstraction is very complicated to implement, but very easy to use.
+
+
 ;; Dynamic and Lexical Binding
 
 ;; dynamic
@@ -32,6 +36,8 @@
     )
   )
 
+
+;; local state means object has its own memory
 
 ;; Actually we are making a class object here which has global class variables and local instance variables
 ;; using only primitives
@@ -79,6 +85,10 @@
 
 
 ;; Class with inheritance
+
+;; Inheritance is what makes object-oriented programming practical
+;; we don't have to copy and paste procedure all over the place
+
 ;; a buzzer returns buzz if the number is dividable by 7
 (defalias 'make-buzzer
   (lambda ()
